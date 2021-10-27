@@ -4,8 +4,14 @@
   list-style: none;
 }
 
+body {
+  background-color: #010101;
+  font-family: "Hahmlet", serif;
+}
+
 .landing-page {
   position: absolute;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,9 +43,6 @@
 }
 
 main {
-  background-image: url(./src/bg.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,20 +52,27 @@ main {
   transition: all ease-in 0.5s;
 }
 
+main .bg-txt {
+  z-index: -1;
+  color: #f8f9f9;
+  text-align: center;
+}
+
 .information {
+  position: absolute;
   display: inherit;
   flex-direction: inherit;
   align-items: inherit;
   width: 350px;
   height: 450px;
   margin: 10px;
-  background-color: rgba(209, 209, 209, 0.39);
-  border-radius: 20px;
+  background-color: rgba(19, 19, 19, 0.884);
+  border-radius: 10px;
 }
 
 .information h2 {
   margin: 20px;
-  padding: 2px;
+  padding: 0 4px;
   background-color: rgb(255, 4, 213);
   color: rgb(0, 255, 55);
   animation: knock-knock 1.4s infinite ease-in-out alternate;
@@ -70,7 +80,7 @@ main {
 
 @keyframes knock-knock {
   from {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   to {
     transform: scale(1);
@@ -81,18 +91,27 @@ main {
   width: 300px;
 }
 
-.information ul {
+.information p {
   width: 300px;
   margin: 20px;
   padding: 10px;
   text-align: center;
-  color: rgb(255, 4, 213);
-  font-size: 20px;
+  color: rgb(4, 255, 117);
+  font-size: 16px;
+  font-family: "Special Elite", cursive;
   font-weight: 700;
 }
 
-.hidden {
-  display: none;
+.audioButton {
+  all: unset;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: #f8f9f9;
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .disappear {
@@ -103,8 +122,17 @@ main {
 @keyframes fade-out {
   from {
     opacity: 1;
+    height: 100%;
   }
   to {
     opacity: 0;
+    height: 0vh;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .bg-txt {
+    letter-spacing: 0.3rem;
+    font-size: 24px;
   }
 }
