@@ -3,24 +3,26 @@ const $mainPage = document.querySelector("main");
 const $enterBtn = document.querySelector(".enter-btn");
 
 const $audio = document.querySelector("#audio");
-const $audioBtn = document.querySelector(".audioButton");
-let isPlaying = false;
+//const $audioBtn = document.querySelector(".audioButton");
+//let isPlaying = false;
 
 $enterBtn.addEventListener("click", () => {
   $landingPage.classList.add("disappear");
+  $audio.play();
 });
-$audioBtn.addEventListener("click", togglePlay);
 
-function togglePlay() {
-  isPlaying ? $audio.pause() : $audio.play();
-}
+// $audioBtn.addEventListener("click", togglePlay);
 
-$audio.onplaying = function () {
-  $audioBtn.textContent = "music OFF🔇";
-  isPlaying = true;
-};
+// function togglePlay() {
+//   isPlaying ? $audio.pause() : $audio.play();
+// }
 
-$audio.onpause = function () {
-  $audioBtn.textContent = "music ON🔈";
-  isPlaying = false;
-};
+// $audio.onplaying = function () {
+//   $audioBtn.textContent = "music OFF🔇";
+//   isPlaying = true;
+// };
+
+// $audio.onpause = function () {
+//   $audioBtn.textContent = "music ON🔈";
+//   isPlaying = false;
+// };
