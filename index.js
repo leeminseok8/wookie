@@ -1,21 +1,26 @@
 const $landingPage = document.querySelector(".landing-page");
 const $mainPage = document.querySelector("main");
 const $enterBtn = document.querySelector(".enter-btn");
-const audio = new Audio("/src/aespa.mp3");
+
+const $audio = document.querySelector("#audio");
 const $audioBtn = document.querySelector(".audioButton");
-let isPlaying = true;
+let isPlaying = false;
 
 $enterBtn.addEventListener("click", () => {
   $landingPage.classList.add("disappear");
 });
-$audioBtn.addEventListener("click", handleClickAudio);
+$audioBtn.addEventListener("click", togglePlay);
 
-function handleClickAudio() {
-  if (isPlaying) {
-    audio.play();
-    isPlaying = false;
-  } else {
-    audio.pause();
-    isPlaying = true;
-  }
+function togglePlay() {
+  isPlaying ? $audio.pause() : $audio.play();
 }
+
+$audio.onplaying = function () {
+  $audioBtn.textContent = "music OFF🔇";
+  isPlaying = true;
+};
+
+$audio.onpause = function () {
+  $audioBtn.textContent = "music ON🔈";
+  isPlaying = false;
+};
